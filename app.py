@@ -1,15 +1,12 @@
 # Pseudocode and TODOs
 
-# 1
-# given one Artist name and Album title, retrieve album info
-# output the number of tracks and the length of album
-
 # 2
-# given multiple Artist names and Album titles in a CSV (10), retrieve album info
+# given multiple Artist names and Album titles in a CSV, retrieve album info
 # output the average length (calculate), and visualize number of tracks as a bar graph
 
 from dotenv import load_dotenv
 import os
+import pandas as pd
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
@@ -43,7 +40,17 @@ def get_album_info(album_title, artist_name):
         }
     else:
         return "Album not found"
-    
+
+
+def main():
+    # csv file path
+    csv_file_path = 'albums.csv'
+
+    # read csv into pandas dataframe
+    df = pd.read_csv(csv_file_path)
+
+    # process the df here
+    # 
 
 if __name__ == "__main__":
-    print(get_album_info('GUTS','Olivia Rodrigo'))
+    main()
