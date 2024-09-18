@@ -39,7 +39,7 @@ def get_album_info(album_title, artist_name):
             'uri': album['uri']
         }
     else:
-        return "Album not found"
+        return None #or should I use "album not found"?
 
 
 def main():
@@ -49,8 +49,24 @@ def main():
     # read csv into pandas dataframe
     df = pd.read_csv(csv_file_path)
 
-    # process the df here
-    # 
+   
+    # process the df 
+    album_data_list = []
+    # go through each row of the df (each album) and get the data 
+    for index, row in df.iterrows():
+        album_title = row['album_title']
+        artist_name = row['artist_name']
+
+        album_data = get_album_info(album_title, artist_name)
+
+        if album_data:
+            album_data_list.append(album_data)
+
+    # convert this album data list to a new df with all the info it pulled
+    album_data_df = pd.DataFrame(album_data_list)
+
+    # here, we can analyze the data or do more with it
+    print(album_data_df)
 
 if __name__ == "__main__":
     main()
