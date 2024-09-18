@@ -28,14 +28,23 @@ def get_album_info(album_title, artist_name):
     if result['albums']['items']:
         # parse JSON to get the first (and only) album for its info
         album = result['albums']['items'][0]
+        album_id = album['id']
+
+        # Get album tracks
+        tracks = sp.album_tracks(album_id)
+        track_durations = [track['duration_ms'] for track in tracks['items']]
+        
+        # Convert milliseconds to minutes
+        total_duration_ms = sum(track_durations)
+        total_duration_min = total_duration_ms / (1000 * 60)
 
         # extract details from JSON and put into new dict of info for the album
         return {
             'album_name': album['name'],
-            'album_id': album['id'],
             'artist_name': album['artists'][0]['name'], #this is just 1 artist for now, but later can make a list if theres multiple primary artists
             'release_date': album['release_date'],
             'total_tracks': album['total_tracks'],
+            'total_duration_min': total_duration_min,
             'uri': album['uri']
         }
     else:
@@ -66,7 +75,15 @@ def main():
     album_data_df = pd.DataFrame(album_data_list)
 
     # here, we can analyze the data or do more with it
-    print(album_data_df)
+    # print(album_data_df)
+    # output the average length (calculate)
+        # Calculate average album length
+    if not album_data_df.empty:
+        average_length = album_data_df['total_duration_min'].mean()
+        print(f'Average album length: {average_length:.2f} minutes') # add a MM:SS function later
+    else:
+        print('No album data available.')
+
 
 if __name__ == "__main__":
     main()
