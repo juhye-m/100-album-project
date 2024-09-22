@@ -1,11 +1,12 @@
 Pseudocode and TODOs
 
 TODO
-- Data Analysis:
-    - total number of songs listened to (easy)
-    - avg number of songs on an album (easy)
-    - total duration listened to (easy)
-    - rating stuff (later)
+- organize project / add boilerplate
+- need to save my analysis results from jupyter notebook to a csv or json
+- build a website with basic visualizations
+    - main.js - fetch data
+    - integrate with HTML
+
 
 - Visualizations - i think these would be more interesting with more comparative data analysis though / after ratings, not these basic ones, since this is just what i straight up chose to listen to
     - (basic info of what i listened to / the data)
@@ -25,6 +26,9 @@ TODO
 
 - create an algorithm for my own ratings as a number to compare to smth like popularity score (research how pop score is calculated)
 
+- Data Analysis:
+    - rating stuff
+
 
 DONE
 - work in jupyter notebook
@@ -32,6 +36,9 @@ DONE
 - think about what data analysis i actually want next
     - average duration, HH:MM:SS
     - average audio features for each individual album
+    - total number of songs listened to (easy)
+    - avg number of songs on an album (easy)
+    - total duration listened to (easy)
 
 IDEAS
 2
