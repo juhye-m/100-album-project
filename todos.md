@@ -1,8 +1,11 @@
 Pseudocode and TODOs
 
 NEXT
-- get jupyter notebook/conda to work
-- review and tweak df
+- perhaps work in jupyter notebook elsewhere
+- be able to see audio features more clearly in the df
+- think about what data analysis i actually want next
+    - average duration, HH:MM:SS - DONE
+    - average audio features for each individual album
 
 2
 given multiple Artist names and Album titles in a CSV, retrieve album info
